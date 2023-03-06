@@ -1,4 +1,20 @@
+.images-list .image-item {
+    width: 100%;
+    height: 100px;
+    cursor: pointer;
+}
 
+.images-list .image-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
 /* 
 
     You can write your own styles here...
