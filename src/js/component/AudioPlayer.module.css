@@ -1,0 +1,51 @@
+.audioPlayer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+}
+.foward{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+    border: none; 
+    width: 45px;
+    height: 45px;
+    
+}
+.playBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+    border: none;
+}
+.backward{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    cursor: pointer;
+    border: none;
+    width: 45px;
+    height: 45px;
+    
+}
+.currentTime,
+.duration{
+    font-size: 20px;
+}
+.currentTime{
+    margin-left: 20px;
+}
+.progressBar{
+    position: relative;
+    width: 100px;
+    height: 11px;
+    outline: none;
+}
