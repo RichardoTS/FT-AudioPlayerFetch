@@ -10,16 +10,18 @@ const AudioPlayer = () => {
     const [isPlaying, setIsPlaying] = useState([
         { id: 1, category: 'game', name: 'Mario Castle', url: 'files/mario/songs/castle.mp3' },
         { id: 2, category: 'game', name: 'Mario Star', url: 'files/mario/songs/hurry-starman.mp3' },
-        { id: 3, category: 'game', name: 'Mario Overworld', url: 'files/mario/songs/overworld.mp3' }
-        ]);
+        { id: 3, category: 'game', name: 'Mario Overworld', url: 'files/mario/songs/overworld.mp3' },
+        { id: 4, category: 'game', name: 'SuperMario Stage 1', url: "files/mario/songs/stage1.mp3" },
+        { id: 5, category: 'game', name: 'SuperMario Stage 2', url: "files/mario/songs/stage2.mp3" }
+    ]);
 
     const audioRef = useRef();
 
     const togglePlayPause = () => {
         setIsPlaying(!isPlaying);
-        if(isPlaying){
+        if (isPlaying) {
             audioPlayer.current.play();
-        }else{
+        } else {
             audioPlayer.current.pause();
         }
     }
@@ -36,12 +38,6 @@ const AudioPlayer = () => {
             </button>
 
             <button className={styles.foward}><BsFillArrowRightCircleFill /></button>
-
-            <div className={styles.currentTime}>0:00</div>
-
-            <div><input type="range" className={styles.progressBar} defaultValue="0"/></div>
-
-            <div className={styles.duration}>2:49</div>
         </div>
 
 

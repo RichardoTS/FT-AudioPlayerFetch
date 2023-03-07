@@ -33,19 +33,5 @@
     cursor: pointer;
     border: none;
     width: 45px;
-    height: 45px;
-    
-}
-.currentTime,
-.duration{
-    font-size: 20px;
-}
-.currentTime{
-    margin-left: 20px;
-}
-.progressBar{
-    position: relative;
-    width: 100px;
-    height: 11px;
-    outline: none;
+    height: 45px;    
 }
