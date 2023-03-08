@@ -25,12 +25,9 @@ const AudioPlayer = () => {
         });
     }
 
-
-
-
     useEffect(() => {
         getSounds();
-        
+
         if (audioRef) {
             audioRef.volume = volume / 100;
         }
