@@ -1,9 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from "./AudioPlayer.module.css";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
-import { BsFillArrowRightCircleFill } from "react-icons/bs";
-import { AiFillPlayCircle } from "react-icons/ai";
-import { AiFillPauseCircle } from "react-icons/ai";
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 
 const AudioPlayer = () => {
 
@@ -26,9 +24,9 @@ const AudioPlayer = () => {
     })
 
     useEffect(() => {
-        if(audioRef){
+        if (audioRef) {
             audioRef.volume = volume / 100;
-        }        
+        }
     }, [volume, audioRef]);
 
     const [icon, setIcon] = useState(<AiFillPlayCircle />)
@@ -57,42 +55,40 @@ const AudioPlayer = () => {
     }
 
     function previousSong() {
-        if (playing === null || playing === isPlaying.length - 1) {
+        if (playing === null || playing === 0) {
             audioRef.src = "https://assets.breatheco.de/apis/sound/" + isPlaying[isPlaying.length - 1].url;
-            setPlaying(0);
+            setPlaying(isPlaying.length - 1);
             playAudio();
             return;
         } else {
             audioRef.src = "https://assets.breatheco.de/apis/sound/" + isPlaying[playing - 1].url;
             playAudio();
-            setPlaying(playing + 1);
+            setPlaying(playing - 1);
         }
     }
 
     return (
         <>
             <div>
-                <div>
-                    <ol>
-                        <span onClick={playAudio}>{playList}</span>
-                    </ol>
-                </div>
-                <div>
-                    <input className={styles.barProg} type="range" min={0} max={100} onChange={(e) => setVolume(e.target.value)}/>
-                </div>
+                <ol>
+                    <span onClick={playAudio}>{playList}</span>
+                </ol>
+            </div>
+            <div>
+                <input className={styles.barProg} type="range" min={0} max={100} onChange={(e) => setVolume(e.target.value)} />
+            </div>
 
-                <div className={styles.mdPlyr}>
-                    <audio ref={t => audioRef = t}></audio>
+            <div className={styles.mdPlyr}>
+                <audio ref={elem => audioRef = elem}></audio>
 
-                    <div className={styles.audioPlayer}>
-                        <button className={styles.backward} onClick={previousSong}><BsFillArrowLeftCircleFill /></button>
+                <div className={styles.audioPlayer}>
+                    <button className={styles.backward} onClick={previousSong}><BsFillArrowLeftCircleFill /></button>
 
-                        <button className={styles.playBtn} onClick={playAudio}>
-                            {icon}
-                        </button>
+                    <button className={styles.playBtn} onClick={playAudio}>
+                        {icon}
+                    </button>
 
-                        <button className={styles.foward} onClick={nextSong}><BsFillArrowRightCircleFill /></button>
-                    </div>
+                    <button className={styles.foward} onClick={nextSong}><BsFillArrowRightCircleFill /></button>
                 </div>
             </div>
         </>
