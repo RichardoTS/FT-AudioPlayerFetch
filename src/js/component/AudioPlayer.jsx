@@ -5,13 +5,7 @@ import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 
 const AudioPlayer = () => {
 
-    const [isPlaying, setIsPlaying] = useState([
-        { "id": 1, "category": "game", "name": "Mario Castle", "url": "files/mario/songs/castle.mp3" },
-        { "id": 2, "category": "game", "name": "Mario Star", "url": "files/mario/songs/hurry-starman.mp3" },
-        { "id": 3, "category": "game", "name": "Mario Overworld", "url": "files/mario/songs/overworld.mp3" },
-        { "id": 4, "category": "game", "name": "SuperMario Stage 1", "url": "files/mario/songs/stage1.mp3" },
-        { "id": 5, "category": "game", "name": "SuperMario Stage 2", "url": "files/mario/songs/stage2.mp3" },
-    ]);
+    const [isPlaying, setIsPlaying] = useState([]);
     const [volume, setVolume] = useState(60);
 
     let audioRef = useRef();
@@ -23,7 +17,20 @@ const AudioPlayer = () => {
         return <li key={i}><button className={styles.lista} onClick={() => { audioRef.src = "https://assets.breatheco.de/apis/sound/" + url; setPlaying(i) }}>{trk.name}</button></li>
     })
 
+    const getSounds = () => {
+        fetch("https://assets.breatheco.de/apis/sound/songs")
+        .then((response) => response.json())
+        .then((data) => {
+            setIsPlaying(data);
+        });
+    }
+
+
+
+
     useEffect(() => {
+        getSounds();
+        
         if (audioRef) {
             audioRef.volume = volume / 100;
         }
