@@ -1,9 +1,8 @@
  .audioPlayer {
      display: flex;
      align-items: center;
-     justify-content: center;
-     height: 200px;
      justify-content: space-between;
+     /* justify-content: center;   */
  }
 
  .foward {
@@ -16,7 +15,7 @@
      border-radius: 50%;
      width: 45px;
      height: 45px;
-     background: rgb(65, 60, 60);
+     background: orange;
      box-shadow: 0px 0px 1px 3px grey;
  }
  .foward:active {
@@ -34,7 +33,7 @@
      font-size: 35px;
      border-radius: 50%;
      border: none;
-     background: rgb(65, 60, 60);
+     background: orange;
      box-shadow: 0px 0px 1px 3px grey;
  }
 
@@ -53,7 +52,7 @@
      border-radius: 50%;
      width: 45px;
      height: 45px;
-     background: rgb(65, 60, 60);
+     background: orange;
      box-shadow: 0px 0px 1px 3px grey;
 
  }
@@ -68,4 +67,15 @@
  .lista:active{
     background-color: rgb(170, 170, 170);
     border: 1px grey soldid;
+ }
+ .barProg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ .mdPlyr{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }

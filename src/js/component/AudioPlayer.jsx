@@ -14,6 +14,7 @@ const AudioPlayer = () => {
         { "id": 4, "category": "game", "name": "SuperMario Stage 1", "url": "files/mario/songs/stage1.mp3" },
         { "id": 5, "category": "game", "name": "SuperMario Stage 2", "url": "files/mario/songs/stage2.mp3" }
     ]);
+    const [volume, setVolume] = useState(60);
 
     let audioRef = useRef();
 
@@ -21,12 +22,14 @@ const AudioPlayer = () => {
 
     const playList = isPlaying.map((trk, i) => {
         const url = trk.url
-        return <li key={i}><button className={styles.lista}onClick={() => { audioRef.src = "https://assets.breatheco.de/apis/sound/" + url; setPlaying(i) }}>{trk.name}</button></li>
+        return <li key={i}><button className={styles.lista} onClick={() => { audioRef.src = "https://assets.breatheco.de/apis/sound/" + url; setPlaying(i) }}>{trk.name}</button></li>
     })
 
     useEffect(() => {
-        console.log(audioRef)
-    })
+        if(audioRef){
+            audioRef.volume = volume / 100;
+        }        
+    }, [volume, audioRef]);
 
     const [icon, setIcon] = useState(<AiFillPlayCircle />)
 
@@ -69,11 +72,18 @@ const AudioPlayer = () => {
     return (
         <>
             <div>
-                <ol>
-                    {playList}
-                </ol>
-                <div >
+                <div>
+                    <ol>
+                        {playList}
+                    </ol>
+                </div>
+                <div>
+                    <input className={styles.barProg} type="range" min={0} max={100} onChange={(e) => setVolume(e.target.value)}/>
+                </div>
+
+                <div className={styles.mdPlyr}>
                     <audio ref={t => audioRef = t}></audio>
+
                     <div className={styles.audioPlayer}>
                         <button className={styles.backward} onClick={previousSong}><BsFillArrowLeftCircleFill /></button>
 
