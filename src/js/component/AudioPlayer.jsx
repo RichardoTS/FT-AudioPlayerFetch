@@ -12,7 +12,7 @@ const AudioPlayer = () => {
         { "id": 2, "category": "game", "name": "Mario Star", "url": "files/mario/songs/hurry-starman.mp3" },
         { "id": 3, "category": "game", "name": "Mario Overworld", "url": "files/mario/songs/overworld.mp3" },
         { "id": 4, "category": "game", "name": "SuperMario Stage 1", "url": "files/mario/songs/stage1.mp3" },
-        { "id": 5, "category": "game", "name": "SuperMario Stage 2", "url": "files/mario/songs/stage2.mp3" }
+        { "id": 5, "category": "game", "name": "SuperMario Stage 2", "url": "files/mario/songs/stage2.mp3" },
     ]);
     const [volume, setVolume] = useState(60);
 
@@ -63,7 +63,7 @@ const AudioPlayer = () => {
             playAudio();
             return;
         } else {
-            audioRef.src = "https://assets.breatheco.de/apis/sound/" + isPlaying[playing + 1].url;
+            audioRef.src = "https://assets.breatheco.de/apis/sound/" + isPlaying[playing - 1].url;
             playAudio();
             setPlaying(playing + 1);
         }
@@ -74,7 +74,7 @@ const AudioPlayer = () => {
             <div>
                 <div>
                     <ol>
-                        {playList}
+                        <span onClick={playAudio}>{playList}</span>
                     </ol>
                 </div>
                 <div>
