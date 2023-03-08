@@ -21,7 +21,7 @@ const AudioPlayer = () => {
 
     const playList = isPlaying.map((trk, i) => {
         // const url = trk.url
-        return <li key={i}><button onClick={() => { audioRef.src = "https://assets.breatheco.de/apis/sound/" + trk.url; setPlaying(i) }}>{trk.name}</button></li>
+        return <li key={i}><button className={styles.lista}onClick={() => { audioRef.src = "https://assets.breatheco.de/apis/sound/" + trk.url; setPlaying(i) }}>{trk.name}</button></li>
     })
 
     useEffect(() => {

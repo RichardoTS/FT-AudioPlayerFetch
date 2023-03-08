@@ -62,3 +62,10 @@
      background-color: rgb(170, 170, 170);
      border: 1px grey soldid;
  }
+ .lista{
+    border: none;        
+ }
+ .lista:active{
+    background-color: rgb(170, 170, 170);
+    border: 1px grey soldid;
+ }
