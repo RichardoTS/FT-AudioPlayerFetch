@@ -60,6 +60,7 @@
      border: 1px grey soldid;
  }
  .lista{
+    background: rgb(40, 156, 29);
     border: none;        
  }
  .lista:active{

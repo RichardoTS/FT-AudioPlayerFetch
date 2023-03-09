@@ -19,10 +19,10 @@ const AudioPlayer = () => {
 
     const getSounds = () => {
         fetch("https://assets.breatheco.de/apis/sound/songs")
-        .then((response) => response.json())
-        .then((data) => {
-            setIsPlaying(data);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                setIsPlaying(data);
+            });
     }
 
     useEffect(() => {
@@ -73,11 +73,10 @@ const AudioPlayer = () => {
 
     return (
         <>
-            <div>
-                <ol>
-                    <span onClick={playAudio}>{playList}</span>
-                </ol>
-            </div>
+            <ol>
+                <span onClick={playAudio}>{playList}</span>
+            </ol>
+
             <div>
                 <input className={styles.barProg} type="range" min={0} max={100} onChange={(e) => setVolume(e.target.value)} />
             </div>
