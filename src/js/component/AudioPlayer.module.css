@@ -58,6 +58,7 @@
  .backward:active {
      background-color: rgb(170, 170, 170);
      border: 1px grey soldid;
+     
  }
  .lista{
     background: rgb(40, 156, 29);

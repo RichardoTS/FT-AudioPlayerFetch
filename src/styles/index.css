@@ -1,11 +1,12 @@
  .container {
-     min-height: 100vh;
+     width: auto;
+     height: auto;
      padding: 0 0.5rem;
      display: flex;
      flex-direction: column;
      justify-content: center;
      align-items: center;
-     background: rgb(161, 160, 160);
+     background: rgb(107, 140, 254);
  }
 
  .APlayer {     
@@ -18,6 +19,10 @@
     align-items: center;
     background: rgb(40, 156, 29);         
  }
+ body{
+    background: rgb(107, 140, 254);
+ }
+ 
 
  /* 
     You can write your own styles here...    
